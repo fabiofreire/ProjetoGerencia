@@ -1,0 +1,29 @@
+<project default="test">
+
+   <property name="src-dir" location="src" />
+
+   <path id="classpath.base">
+       <pathelement location="/lib/junit.jar" />
+       <pathelement location="${src-dir}" />
+     </path>
+   
+   <target name="compile">
+       <javac srcdir="${src-dir}">
+            <classpath refid="classpath.base"/>
+       </javac>
+     </target>
+
+     <target name="clean">
+       <delete verbose="true">
+            <fileset dir="${src-dir}" includes="**/*.class" />
+       </delete>
+     </target>
+
+     <target name="test" depends="compile">
+       <junit>
+            <classpath refid="classpath.base" />
+            <formatter type="brief" usefile="false" />
+            <test name="CalculadoraTest" />
+       </junit>
+     </target>
+</project>
