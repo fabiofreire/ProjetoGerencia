@@ -35,12 +35,7 @@ public class CalculadoraTest extends TestCase {
                 assertEquals(50, calculadora.multiplica(-10, -5));
         }
         
-        public void testDivide() {
-                try {
-                        calculadora.divide(10, 0);
-                        fail("Deveria ter lançado exceção pois denominador é 0.");
-                } catch(IllegalArgumentException e) {}
-                
+        public void testDivide() {  
                 assertEquals(2.0, calculadora.divide(10, 5));
                 assertEquals(-2.0, calculadora.divide(10, -5));
                 assertEquals(-2.0, calculadora.divide(-10, 5));
